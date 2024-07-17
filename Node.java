@@ -2,13 +2,9 @@ public class Node{
     int val;
     int left;
     int right;
-    int color;
 
-    public void Node(int val, int left, int right, int color){
+    public void Node(int val){
         this.val = val;
-        this.left = left;
-        this.right = right;
-        this.color = color;
     }
 
     public void setVal(int val){
@@ -33,13 +29,5 @@ public class Node{
 
     public int getRight(){
         return right;
-    }
-
-    public void setColor(int color){
-        this.color = color;
-    }
-
-    public int getColor(){
-        return color;
     }
 }
