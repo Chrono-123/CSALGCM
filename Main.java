@@ -1,5 +1,6 @@
 public class Main{
-    
+    ArrayList<> black;
+    ArrayList<> red;
     public static void main(String[] args){
         int root = 7;
         Node node1 = new Node(root);
