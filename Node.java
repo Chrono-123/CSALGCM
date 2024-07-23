@@ -1,27 +1,16 @@
-public class Node{
-    int val;
-    int left;
-    int right;
+public class Node {
+  int data;
 
-    public void Node(int val){
-        this.val = val;
-    }
+  Node left;
+  Node right;
+  Node parent;
 
-    public void setVal(int val){
-        this.val = val;
-    }
+  boolean color;
 
-    public int getVal(){
-        return val;
-    }
-
-    public void setLeft(int left){
-        this.left = left;
-    }
-
-    public int getLeft(){
-        return left;
-    }
+  public Node(int data) {
+    this.data = data;
+  }
+}
     
     public void setRight(int right){
         this.right = right;
