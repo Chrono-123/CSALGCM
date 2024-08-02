@@ -12,7 +12,7 @@ class RedBlackNode
     //constructor to set the value of a node having no left and right child  
     public RedBlackNode(int element)  
     {  
-        this( element, null, null );  
+        this(element, null, null);  
     }   
   
     //constructor to set value of element, leftChild, rightChild and color  
@@ -175,67 +175,7 @@ class CreateRedBlackTree
             return size;  
         }  
     }  
-    // create searchNode() method to get desired node from the Red-Black tree  
-    public boolean searchNode(int value)  
-    {  
-        return searchNode(header.rightChild, value);  
-    }  
-    private boolean searchNode(RedBlackNode node, int value)  
-    {  
-        boolean check = false;  
-        while ((node != nullNode) && check != true)  
-        {  
-            int nodeValue = node.element;  
-            if (value < nodeValue)  
-                node = node.leftChild;  
-            else if (value > nodeValue)  
-                node = node.rightChild;  
-            else  
-            {  
-                check = true;  
-                break;  
-            }  
-            check = searchNode(node, value);  
-        }  
-        return check;  
-    }  
-  
-    //create preorderTraversal() method to perform inorder traversal  
-    public void preorderTraversal()  
-    {  
-        preorderTraversal(header.rightChild);  
-    }  
-    private void preorderTraversal(RedBlackNode node)  
-    {  
-        if (node != nullNode)  
-        {  
-            char c = 'R';  
-            if (node.color == 1)  
-                c = 'B';  
-            System.out.print(node.element +""+c+" ");  
-            preorderTraversal(node.leftChild);               
-            preorderTraversal(node.rightChild);  
-        }  
-    }  
-  
-    //create inorderTraversal() method to perform inorder traversal   
-    public void inorderTraversal()  
-    {  
-        inorderTraversal(header.rightChild);  
-    }  
-    private void inorderTraversal(RedBlackNode node)  
-    {  
-        if (node != nullNode)  
-        {  
-            inorderTraversal(node.leftChild);  
-            char c = 'R';  
-            if (node.color == 1)  
-                c = 'B';  
-            System.out.print(node.element +""+c+" ");  
-            inorderTraversal(node.rightChild);  
-        }  
-    }  
-  
+
     //create postorderTraversal() method to perform inorder traversal   
     public void postorderTraversal()  
     {  
@@ -249,7 +189,7 @@ class CreateRedBlackTree
             postorderTraversal(node.rightChild);  
             char c = 'R';  
             if (node.color == 1)  
-             c = 'B';  
+            c = 'B';  
             System.out.print(node.element +""+c+" ");  
         }  
     }       
@@ -273,13 +213,10 @@ class RedBlackTreeExample
         {  
             System.out.println("\nSelect an operation:\n");  
             System.out.println("1. Insert a node ");  
-            System.out.println("2. Search a node");  
-            System.out.println("3. Get total number of nodes in Red Black Tree");  
-            System.out.println("4. Is Red Black Tree empty?");  
-            System.out.println("5. Remove all nodes from Red Black Tree");  
-            System.out.println("6. Display Red Black Tree in Post order");  
-            System.out.println("7. Display Red Black Tree in Pre order");  
-            System.out.println("8. Display Red Black Tree in In order");  
+            System.out.println("2. Get total number of nodes in Red Black Tree");  
+            System.out.println("3. Is Red Black Tree empty?");  
+            System.out.println("4. Remove all nodes from Red Black Tree");  
+            System.out.println("5. Display Red Black Tree in Post order");  
   
             //get choice from user  
             int ch = scan.nextInt();              
@@ -287,33 +224,25 @@ class RedBlackTreeExample
             {  
                 case 1 :   
                     System.out.println("Please enter an element to insert in Red Black Tree");  
-                    obj.insertNewNode( scan.nextInt() );                       
+                    obj.insertNewNode( scan.nextInt() ); 
+                    System.out.print("Current Time in milliseconds = ");
+                    System.out.println(System.currentTimeMillis());                      
                     break;                            
                 case 2 :   
-                    System.out.println("Enter integer element to search");  
-                    System.out.println(obj.searchNode( scan.nextInt() ));  
+                    System.out.println(obj.nodesInTree());  
                     break;                                            
                 case 3 :   
-                    System.out.println(obj.nodesInTree());  
+                    System.out.println(obj.checkEmpty());
                     break;       
                 case 4 :   
-                    System.out.println(obj.checkEmpty());  
+                    obj.removeAll();  
+                    System.out.println("\nTree Cleared successfully"); 
                     break;       
                 case 5 :   
-                    obj.removeAll();  
-                    System.out.println("\nTree Cleared successfully");  
-                    break;  
-                case 6 :   
                     System.out.println("\nDisplay Red Black Tree in Post order");  
                     obj.postorderTraversal();  
-                    break;  
-                case 7 :   
-                    System.out.println("\nDisplay Red Black Tree in Pre order");  
-                    obj.preorderTraversal();  
-                    break;  
-                case 8 :   
-                    System.out.println("\nDisplay Red Black Tree in In order");  
-                    obj.inorderTraversal();  
+                    System.out.print("Current Time in milliseconds = ");
+                    System.out.println(System.currentTimeMillis());
                     break;  
                 default :   
                     System.out.println("\n ");  
@@ -323,6 +252,4 @@ class RedBlackTreeExample
             choice = scan.next().charAt(0);                          
         } while (choice == 'Y'|| choice == 'y');                 
     }  
-} 
-    }
-}
+}  
